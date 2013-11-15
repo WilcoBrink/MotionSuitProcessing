@@ -95,8 +95,12 @@ boolean enableLogging = false;
 // Objecten voor weergave lichaamsdelen
 Sensor armRightWrist, armRightElbow, armRightShoulder;
 Sensor armLeftWrist, armLeftElbow, armLeftShoulder;
+Sensor legRightFoot, legRightKnee, legRightHip;
+Sensor legLeftFoot, legLeftKnee, legLeftHip;
 Limb armRightUpper, armRightLower;
 Limb armLeftUpper, armLeftLower;
+Limb legRightUpper, legRightLower;
+Limb legLeftUpper, legLeftLower;
 
 //boolean sketchFullScreen() {                                            // Functie die het programma fullscreen laat draaien
 //  return true;
