@@ -97,10 +97,12 @@ Sensor armRightWrist, armRightElbow, armRightShoulder;
 Sensor armLeftWrist, armLeftElbow, armLeftShoulder;
 Sensor legRightFoot, legRightKnee, legRightHip;
 Sensor legLeftFoot, legLeftKnee, legLeftHip;
+Sensor chestHip, chestBreast;
 Limb armRightUpper, armRightLower;
 Limb armLeftUpper, armLeftLower;
 Limb legRightUpper, legRightLower;
 Limb legLeftUpper, legLeftLower;
+Limb chestRightHip, chestLeftHip, chestCentral, chestRightShoulder, chestLeftShoulder;
 
 //boolean sketchFullScreen() {                                            // Functie die het programma fullscreen laat draaien
 //  return true;
