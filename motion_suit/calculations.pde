@@ -15,7 +15,7 @@ public void calculations(int size) {
   
   filteredValue = xOEFfilter(yAcceleration[0]);
 
-  for (int i = 0; i < 1; i++) {
+  for (int i = 0; i < 2; i++) {
     float[] temp = new float[3];
     temp = calculate_vector(xAcceleration[i], yAcceleration[i], zAcceleration[i], yGyroscope[i], xGyroscope[i]);
     sensorData[i].update(temp[0], temp[1], temp[2]);

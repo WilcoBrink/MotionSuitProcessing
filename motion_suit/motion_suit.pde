@@ -116,6 +116,7 @@ void setup() {
   Rest[n]=new Vector(Rxe[n], Rye[n], Rze[n]);
   Rest[n-1]=new Vector(Rxe[n-1], Rye[n-1], Rze[n-1]);
   sensorData[0] = new Vector(0.0, 0.0, 0.0);
+  sensorData[1] = new Vector(0.0, 0.0, 0.0);
   
   xOneEuroFilter(10.0, 0.1, 0.1, 0.1);
 
@@ -156,10 +157,13 @@ void draw() {
 
   drawBody();
 
-  //println(sensorData[0].xpos + " " + sensorData[0].ypos + " " + sensorData[0].zpos);
+  // Draw vectors for right wrist
   drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + sensorData[0].xpos, armRightWrist.y + sensorData[0].ypos, armRightWrist.z + sensorData[0].zpos, 1.0, cWhite);
-  drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + Racc.xpos, armRightWrist.y + Racc.ypos, armRightWrist.z + Racc.zpos, 1.0, cYellow);
-  drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + (Rgyro.xpos*10), armRightWrist.y + (Rgyro.ypos*10), armRightWrist.z + (Rgyro.zpos*10), 1.0, cRed);
+  //drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + Racc.xpos, armRightWrist.y + Racc.ypos, armRightWrist.z + Racc.zpos, 1.0, cYellow);
+  //drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + (Rgyro.xpos*10), armRightWrist.y + (Rgyro.ypos*10), armRightWrist.z + (Rgyro.zpos*10), 1.0, cRed);
+  
+  // Draw vectors for left wrist
+  drawLine(armLeftWrist.x, armLeftWrist.y, armLeftWrist.z, armLeftWrist.x + sensorData[1].xpos, armLeftWrist.y + sensorData[1].ypos, armLeftWrist.z + sensorData[1].zpos, 1.0, cWhite);
 
   gui();
 }

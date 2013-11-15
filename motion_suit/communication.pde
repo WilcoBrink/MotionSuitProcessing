@@ -1,5 +1,3 @@
-// Data packet nog ontwerpen! Het binnenkomende packet moet hier dan worden uitgepakt en de inhoud verdeeld over de juiste variabelen
-// Tot nu toe zijn alleen hierin wijzingen vergeleken met de main source
 float timestamp2;
 int oldTime, newTime;
 
