@@ -30,8 +30,6 @@ float[] yaw = new float[20];
 float[] roll = new float[20];
 float[] pitch = new float[20];
 
-//float filteredValue;
-
 // Variabelen gebruikt voor berekeningen
 float[] xAcceleration = new float[20];
 float[] yAcceleration = new float[20];
@@ -50,28 +48,11 @@ float[] yStartSpeed = new float[20];
 float[] zStartSpeed = new float[20];
 
 /////////////////////
-Vector Racc = new Vector(0.0, 0.0, 0.0);
-Vector RaccN = new Vector(0, 0, 0);
-Vector[] Rest = new Vector[2];
-Vector RestN = new Vector(0, 0, 0);
-Vector Rgyro = new Vector(0.0, 0.0, 0.0);
-Vector[] sensorData = new Vector[20];
-
-float Rxa, Rya, Rza, Rxg, Ryg, Rzg = 0;// coordinaten toevoegen
-
-float[] Rxe=new float[2];
-float[] Rye=new float[2];
-float[] Rze=new float[2];
-
-float[] Axz=new float[2];                   // Hoek xz
-float[] Ayz=new float[2];                     // Hoek yz
-float[] RateAxz=new float[2];                  // Draaing uit Gyro
-float[] RateAyz=new float[2];                  // Draaing uit Gyro
-int n = 1;
-float R=0;
-float wGyro=5;
-int schakel = 0;
-float zwaartekracht=9.81;
+//int n = 1;
+//float R=0;
+//float wGyro=5;
+//int schakel = 0;
+//float zwaartekracht=9.81;
 
 float timestamp = 0.05;             // in seconden
 
@@ -118,14 +99,7 @@ void setup() {
   cam.setMinimumDistance(0);
   cam.setMaximumDistance(500);
   cam.setYawRotationMode();
-
-  Rest[n]=new Vector(Rxe[n], Rye[n], Rze[n]);
-  Rest[n-1]=new Vector(Rxe[n-1], Rye[n-1], Rze[n-1]);
-  sensorData[0] = new Vector(0.0, 0.0, 0.0);
-  sensorData[1] = new Vector(0.0, 0.0, 0.0);
   
-  //xOneEuroFilter(10.0, 0.1, 0.1, 0.1);
-
   createInterface();
 
   createLogTable();
@@ -162,14 +136,6 @@ void draw() {
   updateBody();      // hoort eigenlijk in 'communication' na aanroepen van de calculations functie!!!
 
   drawBody();
-
-  // Draw vectors for right wrist
-  drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + sensorData[0].xpos, armRightWrist.y + sensorData[0].ypos, armRightWrist.z + sensorData[0].zpos, 1.0, cWhite);
-  //drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + Racc.xpos, armRightWrist.y + Racc.ypos, armRightWrist.z + Racc.zpos, 1.0, cYellow);
-  //drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + (Rgyro.xpos*10), armRightWrist.y + (Rgyro.ypos*10), armRightWrist.z + (Rgyro.zpos*10), 1.0, cRed);
-  
-  // Draw vectors for left wrist
-  drawLine(armLeftWrist.x, armLeftWrist.y, armLeftWrist.z, armLeftWrist.x + sensorData[1].xpos, armLeftWrist.y + sensorData[1].ypos, armLeftWrist.z + sensorData[1].zpos, 1.0, cWhite);
 
   gui();
 }

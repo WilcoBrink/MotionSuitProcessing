@@ -63,7 +63,6 @@ void gui() {
   text("red_box_z: " + red_box_z, 250, 60);
   text("xAcceleration: " + xAcceleration[0]/9.81 + " g", 250, 80);
   text("yAcceleration: " + yAcceleration[0]/9.81 + " g", 250, 100);
-  //text("filteredValue:   " + filteredValue/9.81 + " g", 250, 120);
   text("zAcceleration: " + zAcceleration[0]/9.81 + " g", 250, 120);
   text("xGyroscope[0]: " + xGyroscope[0], 250, 140);
   text("yGyroscope[0]: " + yGyroscope[0], 250, 160);
@@ -75,23 +74,20 @@ void gui() {
   
   text("bufferSize: " + bufferSize, 10, 280);
   text("received: " + inBuffer, 10, 300);
-  text("sensorData[0].xpos: " + sensorData[0].xpos, 10, 320);
-  text("sensorData[0].ypos: " + sensorData[0].ypos, 10, 340);
-  text("sensorData[0].zpos: " + sensorData[0].zpos, 10, 360);
-  text("inputData[0]: " + inputData[0], 10, 380);
-  text("inputData[1]: " + inputData[1], 10, 400);
-  text("inputData[2]: " + inputData[2], 10, 420);
-  text("inputData[3]: " + inputData[3], 10, 440);
-  text("inputData[4]: " + inputData[4], 10, 460);
-  text("inputData[5]: " + inputData[5], 10, 480);
-  text("inputData[6]: " + inputData[6], 10, 500);
-  text("inputDataSigned[0]: " + inputDataSigned[0], 10, 520);
-  text("inputDataSigned[1]: " + inputDataSigned[1], 10, 540);
-  text("inputDataSigned[2]: " + inputDataSigned[2], 10, 560);
-  text("inputDataSigned[3]: " + inputDataSigned[3], 10, 580);
-  text("inputDataSigned[4]: " + inputDataSigned[4], 10, 600);
-  text("inputDataSigned[5]: " + inputDataSigned[5], 10, 620);
-  text("inputDataSigned[6]: " + inputDataSigned[6], 10, 640);
+  text("inputData[0]: " + inputData[0], 10, 320);
+  text("inputData[1]: " + inputData[1], 10, 340);
+  text("inputData[2]: " + inputData[2], 10, 360);
+  text("inputData[3]: " + inputData[3], 10, 380);
+  text("inputData[4]: " + inputData[4], 10, 400);
+  text("inputData[5]: " + inputData[5], 10, 420);
+  text("inputData[6]: " + inputData[6], 10, 440);
+  text("inputDataSigned[0]: " + inputDataSigned[0], 10, 460);
+  text("inputDataSigned[1]: " + inputDataSigned[1], 10, 480);
+  text("inputDataSigned[2]: " + inputDataSigned[2], 10, 500);
+  text("inputDataSigned[3]: " + inputDataSigned[3], 10, 520);
+  text("inputDataSigned[4]: " + inputDataSigned[4], 10, 540);
+  text("inputDataSigned[5]: " + inputDataSigned[5], 10, 560);
+  text("inputDataSigned[6]: " + inputDataSigned[6], 10, 580);
 
   if (device_connected) {
     fill(0, 200, 0);
