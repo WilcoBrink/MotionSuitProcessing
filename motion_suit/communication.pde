@@ -1,5 +1,5 @@
-float timestamp2;
-int oldTime, newTime;
+float timestamp2 = 0.05;      //in seconds
+float oldTime, newTime;
 
 void serialEvent(Serial myPort) {
   int bitCheck, temp;

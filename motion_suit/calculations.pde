@@ -13,6 +13,23 @@ public void calculations(int size) {
     }
   }
   
+  float[] gravity = new float[3];
+  float[] euler = new float[3];
+  
+  //calculate gravity vector
+  gravity[0] = 2 * (inputDataSigned[1]*inputDataSigned[3] - inputDataSigned[0]*inputDataSigned[2]);
+  gravity[1] = 2 * (inputDataSigned[0]*inputDataSigned[1] + inputDataSigned[2]*inputDataSigned[3]);
+  gravity[2] = inputDataSigned[0]*inputDataSigned[0] - inputDataSigned[1]*inputDataSigned[1] - inputDataSigned[2]*inputDataSigned[2] + inputDataSigned[3]*inputDataSigned[3];
+  
+  // calculate Euler angles
+  euler[0] = atan2(2*inputDataSigned[1]*inputDataSigned[2] - 2*inputDataSigned[0]*inputDataSigned[3], 2*inputDataSigned[0]*inputDataSigned[0] + 2*inputDataSigned[1]*inputDataSigned[1] - 1);
+  euler[1] = -asin(2*inputDataSigned[1]*inputDataSigned[3] + 2*inputDataSigned[0]*inputDataSigned[2]);
+  euler[2] = atan2(2*inputDataSigned[2]*inputDataSigned[3] - 2*inputDataSigned[0]*inputDataSigned[1], 2*inputDataSigned[0]*inputDataSigned[0] + 2*inputDataSigned[3]*inputDataSigned[3] - 1);
+  println(euler);
+  
+  yaw[0] = atan2(2*inputDataSigned[1]*inputDataSigned[2] - 2*inputDataSigned[0]*inputDataSigned[3], 2*inputDataSigned[0]*inputDataSigned[0] + inputDataSigned[1]*inputDataSigned[1] - 1);
+  pitch[0] = atan(gravity[0] / sqrt(gravity[1]*gravity[1] + gravity[2]*gravity[2]));
+  roll[0] = atan(gravity[1] / sqrt(gravity[0]*gravity[0] + gravity[2]*gravity[2]));
   //filteredValue = xOEFfilter(yAcceleration[0]);
 
   /*xDisplacement[0] = (xStartSpeed[0] * timestamp) + (0.5 * sensorData[0].xpos * sq(timestamp));

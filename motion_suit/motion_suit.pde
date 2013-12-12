@@ -123,9 +123,9 @@ void draw() {
 
   pushMatrix();
   //translate(xCoordinate[0], yCoordinate[0], zCoordinate[0]);
-  rotateX(radians(xAngle[0]));
-  rotateY(radians(-yAngle[0]));
-  rotateZ(radians(zAngle[0]));
+  rotateX(pitch[0]);
+  rotateY(yaw[0]);
+  rotateZ(roll[0]);
   fill(0, 255, 255);
   box(10);
   popMatrix();

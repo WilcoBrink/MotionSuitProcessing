@@ -64,9 +64,9 @@ void gui() {
   text("xAcceleration: " + xAcceleration[0]/9.81 + " g", 250, 80);
   text("yAcceleration: " + yAcceleration[0]/9.81 + " g", 250, 100);
   text("zAcceleration: " + zAcceleration[0]/9.81 + " g", 250, 120);
-  text("xGyroscope[0]: " + xGyroscope[0], 250, 140);
-  text("yGyroscope[0]: " + yGyroscope[0], 250, 160);
-  text("zGyroscope[0]: " + zGyroscope[0], 250, 180);
+  text("yaw[0]: " + degrees(yaw[0]), 250, 140);
+  text("pitch[0]: " + degrees(pitch[0]), 250, 160);
+  text("roll[0]: " + degrees(roll[0]), 250, 180);
   text("xCoordinate[0]: "+ xCoordinate[0], 250, 200);
   text("yCoordinate[0]: "+ yCoordinate[0], 250, 220);
   text("zCoordinate[0]: "+ zCoordinate[0], 250, 240);
