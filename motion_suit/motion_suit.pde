@@ -30,7 +30,7 @@ float[] yaw = new float[20];
 float[] roll = new float[20];
 float[] pitch = new float[20];
 
-float filteredValue;
+//float filteredValue;
 
 // Variabelen gebruikt voor berekeningen
 float[] xAcceleration = new float[20];
@@ -84,8 +84,8 @@ boolean device_connected = false;   // 'Flag' voor device connected
 boolean firstReceive = true;
 
 // Variabelen voor inkomende data
-int[] inputData = new int[6];
-float[] inputDataSigned = new float[6];
+int[] inputData = new int[7];
+float[] inputDataSigned = new float[7];
 
 // Variabelen voor datalogging
 Table table;
@@ -124,7 +124,7 @@ void setup() {
   sensorData[0] = new Vector(0.0, 0.0, 0.0);
   sensorData[1] = new Vector(0.0, 0.0, 0.0);
   
-  xOneEuroFilter(10.0, 0.1, 0.1, 0.1);
+  //xOneEuroFilter(10.0, 0.1, 0.1, 0.1);
 
   createInterface();
 

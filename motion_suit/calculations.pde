@@ -3,17 +3,17 @@ public void calculations(int size) {
   int gyroMode = 2000;
   //println("size:" + size);
   if (inBuffer != null) {
-    for (int i = 0;i < (size-1)/6; i++) {
-      xAcceleration[i] = (inputDataSigned[6*i]/32768.0)*9.81*accMode;      // versnelling in m/s^2
-      zAcceleration[i] = (inputDataSigned[6*i+1]/32768.0)*9.81*accMode;    // in accelero is z in de hoogte, in processing ligt z op het horizontale vlak
-      yAcceleration[i] = (inputDataSigned[6*i+2]/32768.0)*9.81*accMode;    // in accelero ligt y op het horizontale vlak, in processing is y in de hoogte
-      xGyroscope[i] = (inputDataSigned[6*i+3]/32768.0)*gyroMode;
-      zGyroscope[i] = (inputDataSigned[6*i+4]/32768.0)*gyroMode;
-      yGyroscope[i] = (inputDataSigned[6*i+5]/32768.0)*gyroMode;
+    for (int i = 0;i < (size-1)/7; i++) {
+      xAcceleration[i] = (inputDataSigned[7*i+4]/32768.0)*9.81*accMode;      // versnelling in m/s^2
+      zAcceleration[i] = (inputDataSigned[7*i+5]/32768.0)*9.81*accMode;    // in accelero is z in de hoogte, in processing ligt z op het horizontale vlak
+      yAcceleration[i] = (inputDataSigned[7*i+6]/32768.0)*9.81*accMode;    // in accelero ligt y op het horizontale vlak, in processing is y in de hoogte
+      //xGyroscope[i] = (inputDataSigned[6*i+3]/32768.0)*gyroMode;
+      //zGyroscope[i] = (inputDataSigned[6*i+4]/32768.0)*gyroMode;
+      //yGyroscope[i] = (inputDataSigned[6*i+5]/32768.0)*gyroMode;
     }
   }
   
-  filteredValue = xOEFfilter(yAcceleration[0]);
+  //filteredValue = xOEFfilter(yAcceleration[0]);
 
   for (int i = 0; i < 2; i++) {
     float[] temp = new float[3];
