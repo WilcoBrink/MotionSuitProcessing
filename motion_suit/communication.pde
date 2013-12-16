@@ -1,5 +1,6 @@
 float timestamp2 = 0.05;      //in seconds
 float oldTime, newTime;
+int totaalBuffer;
 
 void serialEvent(Serial myPort) {
   int bitCheck, temp;
@@ -11,6 +12,7 @@ void serialEvent(Serial myPort) {
   if (!firstReceive) {
     bufferSize = myPort.available();
     inBuffer = myPort.readString();
+    totaalBuffer += bufferSize;
     //println(inBuffer);
     inputData = int(split(inBuffer, ','));
     int size = inputData.length;

@@ -54,6 +54,10 @@ float[] zStartSpeed = new float[20];
 //int schakel = 0;
 //float zwaartekracht=9.81;
 
+Quaternion dataQuaternion = new Quaternion(0,0,0,0);
+Quaternion resultQuaternion = new Quaternion(1,0,0,0);
+float[] vectortje = new float[3];
+
 float timestamp = 0.05;             // in seconden
 
 // Variabelen voor UART
@@ -124,8 +128,8 @@ void draw() {
   pushMatrix();
   //translate(xCoordinate[0], yCoordinate[0], zCoordinate[0]);
   rotateX(pitch[0]);
-  rotateY(yaw[0]);
-  rotateZ(roll[0]);
+  rotateY(-yaw[0]);
+  rotateZ(-roll[0]);
   fill(0, 255, 255);
   box(10);
   popMatrix();
@@ -136,6 +140,8 @@ void draw() {
   updateBody();      // hoort eigenlijk in 'communication' na aanroepen van de calculations functie!!!
 
   drawBody();
+  
+  drawLine(-35.0, 0.0, 0.0, -35.0 + vectortje[0], 0.0 + vectortje[1], 0.0 + vectortje[2], 0.5, cYellow);
 
   gui();
 }

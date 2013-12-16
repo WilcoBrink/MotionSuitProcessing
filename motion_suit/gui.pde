@@ -73,6 +73,7 @@ void gui() {
   text("timestamp: " + timestamp2*1000.0 + " ms", 250, 260);
   
   text("bufferSize: " + bufferSize, 10, 280);
+  text("totaal buffer: " + totaalBuffer, 110, 280);
   text("received: " + inBuffer, 10, 300);
   text("inputData[0]: " + inputData[0], 10, 320);
   text("inputData[1]: " + inputData[1], 10, 340);

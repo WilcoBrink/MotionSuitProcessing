@@ -25,7 +25,7 @@ public void calculations(int size) {
   euler[0] = atan2(2*inputDataSigned[1]*inputDataSigned[2] - 2*inputDataSigned[0]*inputDataSigned[3], 2*inputDataSigned[0]*inputDataSigned[0] + 2*inputDataSigned[1]*inputDataSigned[1] - 1);
   euler[1] = -asin(2*inputDataSigned[1]*inputDataSigned[3] + 2*inputDataSigned[0]*inputDataSigned[2]);
   euler[2] = atan2(2*inputDataSigned[2]*inputDataSigned[3] - 2*inputDataSigned[0]*inputDataSigned[1], 2*inputDataSigned[0]*inputDataSigned[0] + 2*inputDataSigned[3]*inputDataSigned[3] - 1);
-  println(euler);
+  //println(euler);
   
   yaw[0] = atan2(2*inputDataSigned[1]*inputDataSigned[2] - 2*inputDataSigned[0]*inputDataSigned[3], 2*inputDataSigned[0]*inputDataSigned[0] + inputDataSigned[1]*inputDataSigned[1] - 1);
   pitch[0] = atan(gravity[0] / sqrt(gravity[1]*gravity[1] + gravity[2]*gravity[2]));
@@ -43,6 +43,13 @@ public void calculations(int size) {
   zDisplacement[0] = (zStartSpeed[0] * timestamp) + (0.5 * sensorData[0].zpos * sq(timestamp));
   zCoordinate[0]= zCoordinate[0] + zDisplacement[0];
   zStartSpeed[0] = zStartSpeed[0] + timestamp * sensorData[0].zpos;*/
+  
+  dataQuaternion = new Quaternion(inputDataSigned[0],inputDataSigned[1],inputDataSigned[2],inputDataSigned[3]);
+  resultQuaternion = VermenigvuldigQ(dataQuaternion.NormalizeQ(), resultQuaternion);
+  vectortje[0] = resultQuaternion.V().xpos;
+  vectortje[1] = resultQuaternion.V().ypos;
+  vectortje[2] = resultQuaternion.V().zpos;
+  println(vectortje);
 
   if (enableLogging) {
     addTableRow();
