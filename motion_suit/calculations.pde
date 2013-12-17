@@ -27,8 +27,11 @@ public void calculations(int size) {
   euler[2] = atan2(2*inputDataSigned[2]*inputDataSigned[3] - 2*inputDataSigned[0]*inputDataSigned[1], 2*inputDataSigned[0]*inputDataSigned[0] + 2*inputDataSigned[3]*inputDataSigned[3] - 1);
   //println(euler);
   
+  //z-axis
   yaw[0] = atan2(2*inputDataSigned[1]*inputDataSigned[2] - 2*inputDataSigned[0]*inputDataSigned[3], 2*inputDataSigned[0]*inputDataSigned[0] + inputDataSigned[1]*inputDataSigned[1] - 1);
+  //y-axis
   pitch[0] = atan(gravity[0] / sqrt(gravity[1]*gravity[1] + gravity[2]*gravity[2]));
+  //x-axis
   roll[0] = atan(gravity[1] / sqrt(gravity[0]*gravity[0] + gravity[2]*gravity[2]));
   //filteredValue = xOEFfilter(yAcceleration[0]);
 
@@ -45,11 +48,17 @@ public void calculations(int size) {
   zStartSpeed[0] = zStartSpeed[0] + timestamp * sensorData[0].zpos;*/
   
   dataQuaternion = new Quaternion(inputDataSigned[0],inputDataSigned[1],inputDataSigned[2],inputDataSigned[3]);
+  resultQuaternion=Slerping(Accelerometer[0],dataQuaternion);
+  
+  /*
+  dataQuaternion = new Quaternion(inputDataSigned[0],inputDataSigned[1],inputDataSigned[2],inputDataSigned[3]);
   resultQuaternion = VermenigvuldigQ(dataQuaternion.NormalizeQ(), resultQuaternion);
+  */
+  
   vectortje[0] = resultQuaternion.V().xpos;
   vectortje[1] = resultQuaternion.V().ypos;
   vectortje[2] = resultQuaternion.V().zpos;
-  println(vectortje);
+  //println(vectortje);
 
   if (enableLogging) {
     addTableRow();

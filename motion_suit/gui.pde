@@ -4,7 +4,7 @@ public void createInterface() {
     .setValue(0)
       .isUpdate();
   MyController.addSlider("red_box_y", -100, 100, 128, 70, 100, 10, 100)
-    .setValue(0)
+    .setValue(-10)
       .isUpdate();
   MyController.addSlider("red_box_z", -100, 100, 128, 120, 100, 10, 100)
     .setValue(0)

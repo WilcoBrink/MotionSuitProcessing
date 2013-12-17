@@ -57,6 +57,8 @@ float[] zStartSpeed = new float[20];
 Quaternion dataQuaternion = new Quaternion(0,0,0,0);
 Quaternion resultQuaternion = new Quaternion(1,0,0,0);
 float[] vectortje = new float[3];
+Vector[] Accelerometer=new Vector[20];
+
 
 float timestamp = 0.05;             // in seconden
 
@@ -104,6 +106,8 @@ void setup() {
   cam.setMaximumDistance(500);
   cam.setYawRotationMode();
   
+  Accelerometer[0] = new Vector(0,0,0);
+  
   createInterface();
 
   createLogTable();
@@ -126,12 +130,12 @@ void draw() {
   background(0);
 
   pushMatrix();
-  //translate(xCoordinate[0], yCoordinate[0], zCoordinate[0]);
-  rotateX(pitch[0]);
+  translate(xCoordinate[0], yCoordinate[0] - 15, zCoordinate[0]);
+  rotateX(-roll[0]);
   rotateY(-yaw[0]);
-  rotateZ(-roll[0]);
+  rotateZ(pitch[0]);
   fill(0, 255, 255);
-  box(10);
+  box(5);
   popMatrix();
 
   armRightElbow.y = red_box_y;
@@ -141,7 +145,7 @@ void draw() {
 
   drawBody();
   
-  drawLine(-35.0, 0.0, 0.0, -35.0 + vectortje[0], 0.0 + vectortje[1], 0.0 + vectortje[2], 0.5, cYellow);
+  drawLine(-25.0, -10.0, 0.0, -25.0 + vectortje[0], -10.0 + vectortje[1], 0.0 + vectortje[2], 0.5, cYellow);
 
   gui();
 }

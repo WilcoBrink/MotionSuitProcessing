@@ -37,37 +37,37 @@ class Limb {
     fill(0, 0, 255);
     // Bovenste helft
     vertex(x1, y1, z1);
-    vertex(xMiddle, yMiddle-2, zMiddle-2);
-    vertex(xMiddle, yMiddle+2, zMiddle-2);
+    vertex(xMiddle, yMiddle-1, zMiddle-1);
+    vertex(xMiddle, yMiddle+1, zMiddle-1);
     
     vertex(x1, y1, z1);
-    vertex(xMiddle, yMiddle+2, zMiddle-2);
-    vertex(xMiddle, yMiddle+2, zMiddle+2);
+    vertex(xMiddle, yMiddle+1, zMiddle-1);
+    vertex(xMiddle, yMiddle+1, zMiddle+1);
     
     vertex(x1, y1, z1);
-    vertex(xMiddle, yMiddle-2, zMiddle+2);
-    vertex(xMiddle, yMiddle+2, zMiddle+2);
+    vertex(xMiddle, yMiddle-1, zMiddle+1);
+    vertex(xMiddle, yMiddle+1, zMiddle+1);
     
     vertex(x1, y1, z1);
-    vertex(xMiddle, yMiddle-2, zMiddle-2);
-    vertex(xMiddle, yMiddle-2, zMiddle+2);
+    vertex(xMiddle, yMiddle-1, zMiddle-1);
+    vertex(xMiddle, yMiddle-1, zMiddle+1);
     
     // Onderste helft
     vertex(x2, y2, z2);
-    vertex(xMiddle, yMiddle-2, zMiddle-2);
-    vertex(xMiddle, yMiddle+2, zMiddle-2);
+    vertex(xMiddle, yMiddle-1, zMiddle-1);
+    vertex(xMiddle, yMiddle+1, zMiddle-1);
     
     vertex(x2, y2, z2);
-    vertex(xMiddle, yMiddle+2, zMiddle-2);
-    vertex(xMiddle, yMiddle+2, zMiddle+2);
+    vertex(xMiddle, yMiddle+1, zMiddle-1);
+    vertex(xMiddle, yMiddle+1, zMiddle+1);
     
     vertex(x2, y2, z2);
-    vertex(xMiddle, yMiddle-2, zMiddle+2);
-    vertex(xMiddle, yMiddle+2, zMiddle+2);
+    vertex(xMiddle, yMiddle-1, zMiddle+1);
+    vertex(xMiddle, yMiddle+1, zMiddle+1);
     
     vertex(x2, y2, z2);
-    vertex(xMiddle, yMiddle-2, zMiddle-2);
-    vertex(xMiddle, yMiddle-2, zMiddle+2);
+    vertex(xMiddle, yMiddle-1, zMiddle-1);
+    vertex(xMiddle, yMiddle-1, zMiddle+1);
     endShape();
 
     popMatrix();

@@ -18,7 +18,7 @@ class Sensor {
     rotateY(pitch);
     rotateZ(roll);
     fill(0, 255, 0);
-    box(4);
+    box(1);
     popMatrix();
   }
 }

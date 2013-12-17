@@ -1,34 +1,34 @@
 public void initBody() {
-  armRightWrist = new Sensor(-35.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-  armRightElbow = new Sensor(-25.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-  armRightShoulder = new Sensor(-15.0, 0.0, 0.0, 0.0, 0.0, -20.0);
+  armRightWrist = new Sensor(-25.0, -10.0, 0.0, 0.0, 0.0, 0.0);
+  armRightElbow = new Sensor(-15.0, -10.0, 0.0, 0.0, 0.0, 0.0);
+  armRightShoulder = new Sensor(-5.0, -10.0, 0.0, 0.0, 0.0, 0.0);
 
   armRightUpper = new Limb(armRightShoulder, armRightElbow);
   armRightLower = new Limb(armRightElbow, armRightWrist);
 
-  armLeftWrist = new Sensor(35.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-  armLeftElbow = new Sensor(25.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-  armLeftShoulder = new Sensor(15.0, 0.0, 0.0, 0.0, 0.0, 20.0);
+  armLeftWrist = new Sensor(25.0, -10.0, 0.0, 0.0, 0.0, 0.0);
+  armLeftElbow = new Sensor(15.0, -10.0, 0.0, 0.0, 0.0, 0.0);
+  armLeftShoulder = new Sensor(5.0, -10.0, 0.0, 0.0, 0.0, 0.0);
 
   armLeftUpper = new Limb(armLeftShoulder, armLeftElbow);
   armLeftLower = new Limb(armLeftElbow, armLeftWrist);
   
-  legRightFoot = new Sensor(-10.0, 40.0, 0.0, 0.0, 0.0, 0.0);
-  legRightKnee = new Sensor(-10.0, 30.0, 0.0, 0.0, 0.0, 0.0);
-  legRightHip = new Sensor(-10.0, 20.0, 0.0, 0.0, 0.0, 0.0);
+  legRightFoot = new Sensor(-5.0, 25.0, 0.0, 0.0, 0.0, 0.0);
+  legRightKnee = new Sensor(-5.0, 15.0, 0.0, 0.0, 0.0, 0.0);
+  legRightHip = new Sensor(-5.0, 5.0, 0.0, 0.0, 0.0, 0.0);
   
   legRightLower = new Limb(legRightFoot, legRightKnee);
   legRightUpper = new Limb(legRightKnee, legRightHip);
   
-  legLeftFoot = new Sensor(10.0, 40.0, 0.0, 0.0, 0.0, 0.0);
-  legLeftKnee = new Sensor(10.0, 30.0, 0.0, 0.0, 0.0, 0.0);
-  legLeftHip = new Sensor(10.0, 20.0, 0.0, 0.0, 0.0, 0.0);
+  legLeftFoot = new Sensor(5.0, 25.0, 0.0, 0.0, 0.0, 0.0);
+  legLeftKnee = new Sensor(5.0, 15.0, 0.0, 0.0, 0.0, 0.0);
+  legLeftHip = new Sensor(5.0, 5.0, 0.0, 0.0, 0.0, 0.0);
   
   legLeftLower = new Limb(legLeftFoot, legLeftKnee);
   legLeftUpper = new Limb(legLeftKnee, legLeftHip);
   
-  chestHip = new Sensor(0.0, 10.0, 0.0, 0.0, 0.0, 0.0);
-  chestBreast = new Sensor(0.0, -5.0, 0.0, 0.0, 0.0, 0.0);
+  chestHip = new Sensor(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+  chestBreast = new Sensor(0.0, -10.0, 0.0, 0.0, 0.0, 0.0);
   
   chestRightHip = new Limb(chestHip, legRightHip);
   chestLeftHip = new Limb(chestHip, legLeftHip);
