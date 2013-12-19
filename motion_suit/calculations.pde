@@ -4,9 +4,9 @@ public void calculations(int size) {
   //println("size:" + size);
   if (inBuffer != null) {
     for (int i = 0;i < (size-1)/7; i++) {
-      xAcceleration[i] = (inputDataSigned[7*i+4]/32768.0)*9.81*accMode;      // versnelling in m/s^2
-      yAcceleration[i] = (inputDataSigned[7*i+5]/32768.0)*9.81*accMode;    // in accelero is z in de hoogte, in processing ligt z op het horizontale vlak
-      zAcceleration[i] = (inputDataSigned[7*i+6]/32768.0)*9.81*accMode;    // in accelero ligt y op het horizontale vlak, in processing is y in de hoogte
+      xAcceleration[i] = (inputDataSigned[7*i+4]/32768.0)*accMode;    // versnelling in g
+      yAcceleration[i] = (inputDataSigned[7*i+5]/32768.0)*accMode;    // in accelero is z in de hoogte, in processing ligt z op het horizontale vlak
+      zAcceleration[i] = (inputDataSigned[7*i+6]/32768.0)*accMode;    // in accelero ligt y op het horizontale vlak, in processing is y in de hoogte
     }
   }
 
@@ -17,10 +17,13 @@ public void calculations(int size) {
   gravity[0] = 2 * (inputDataSigned[1]*inputDataSigned[3] - inputDataSigned[0]*inputDataSigned[2]);
   gravity[1] = 2 * (inputDataSigned[0]*inputDataSigned[1] + inputDataSigned[2]*inputDataSigned[3]);
   gravity[2] = inputDataSigned[0]*inputDataSigned[0] - inputDataSigned[1]*inputDataSigned[1] - inputDataSigned[2]*inputDataSigned[2] + inputDataSigned[3]*inputDataSigned[3];
+  println(gravity);
   
-  xLinearAcceleration[0] = xAcceleration[0] - (gravity[0] * 4096);
-  yLinearAcceleration[0] = yAcceleration[0] - (gravity[1] * 4096);
-  zLinearAcceleration[0] = zAcceleration[0] - (gravity[2] * 4096);
+  //drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + xAcceleration[0]*30, armRightWrist.y + yAcceleration[0]*30, armRightWrist.z + zAcceleration[0]*30, 0.5, cRed);
+  xLinearAcceleration[0] = xAcceleration[0] - gravity[0];
+  yLinearAcceleration[0] = yAcceleration[0] - gravity[1];
+  zLinearAcceleration[0] = zAcceleration[0] - gravity[2];
+  //drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + xLinearAcceleration[0]*30, armRightWrist.y + yLinearAcceleration[0]*30, armRightWrist.z + zLinearAcceleration[0]*30, 0.5, cYellow);
 
   // calculate Euler angles
   euler[0] = atan2(2*inputDataSigned[1]*inputDataSigned[2] - 2*inputDataSigned[0]*inputDataSigned[3], 2*inputDataSigned[0]*inputDataSigned[0] + 2*inputDataSigned[1]*inputDataSigned[1] - 1);
@@ -34,7 +37,7 @@ public void calculations(int size) {
   pitch[0] = atan(gravity[0] / sqrt(gravity[1]*gravity[1] + gravity[2]*gravity[2]));
   //x-axis
   roll[0] = -1 * atan(gravity[1] / sqrt(gravity[0]*gravity[0] + gravity[2]*gravity[2]));
-  armRightWrist.Update(armRightWrist.x, armRightWrist.y, armRightWrist.z, yaw[0], pitch[0], roll[0]);
+  armRightWrist.Update(-25.0, -10.0, 0.0, yaw[0], pitch[0], roll[0]);
 
   /*xDisplacement[0] = (xStartSpeed[0] * timestamp) + (0.5 * sensorData[0].xpos * sq(timestamp));
    xCoordinate[0]= xCoordinate[0] + xDisplacement[0];

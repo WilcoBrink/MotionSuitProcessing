@@ -1,7 +1,7 @@
 public void createInterface() {
   MyController = new ControlP5(this);                                     // Nieuw controller object
   MyController.addSlider("red_box_x", -100, 100, 128, 20, 100, 10, 100)
-    .setValue(0)
+    .setValue(-15)
       .isUpdate();
   MyController.addSlider("red_box_y", -100, 100, 128, 70, 100, 10, 100)
     .setValue(-10)
@@ -61,9 +61,9 @@ void gui() {
   text("red_box_x: " + red_box_x, 250, 20);
   text("red_box_y: " + red_box_y, 250, 40);
   text("red_box_z: " + red_box_z, 250, 60);
-  text("xAcceleration: " + xAcceleration[0]/9.81 + " g", 250, 80);
-  text("yAcceleration: " + yAcceleration[0]/9.81 + " g", 250, 100);
-  text("zAcceleration: " + zAcceleration[0]/9.81 + " g", 250, 120);
+  text("xAcceleration: " + xAcceleration[0] + " g", 250, 80);
+  text("yAcceleration: " + yAcceleration[0] + " g", 250, 100);
+  text("zAcceleration: " + zAcceleration[0] + " g", 250, 120);
   text("xLinearAcceleration: " + xLinearAcceleration[0] + " g", 500, 80);
   text("yLinearAcceleration: " + yLinearAcceleration[0] + " g", 500, 100);
   text("zLinearAcceleration: " + zLinearAcceleration[0] + " g", 500, 120);
@@ -77,6 +77,7 @@ void gui() {
 
   text("bufferSize: " + bufferSize, 10, 280);
   text("totaal buffer: " + totaalBuffer, 110, 280);
+  text("packets: " + serialPackets, 310, 280);
   text("received: " + inBuffer, 10, 300);
   text("inputData[0]: " + inputData[0], 10, 320);
   text("inputData[1]: " + inputData[1], 10, 340);

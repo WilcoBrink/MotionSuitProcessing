@@ -135,7 +135,7 @@ void draw() {
 
   drawBody();
 
-  drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + vectortje[0], armRightWrist.y + vectortje[1], armRightWrist.z + vectortje[2], 0.5, cYellow);
+  //drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + vectortje[0], armRightWrist.y + vectortje[1], armRightWrist.z + vectortje[2], 0.5, cYellow);
 
   gui();
 }

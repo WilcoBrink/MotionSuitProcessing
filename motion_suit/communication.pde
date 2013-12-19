@@ -1,5 +1,5 @@
 float oldTime, newTime;
-int totaalBuffer;
+int totaalBuffer, serialPackets = 0;
 
 void serialEvent(Serial myPort) {
   int bitCheck, temp;
@@ -7,6 +7,7 @@ void serialEvent(Serial myPort) {
   oldTime = newTime;
   newTime = millis();
   timestamp = (newTime - oldTime)/1000.0;
+  serialPackets += 1;
 
   if (!firstReceive) {
     bufferSize = myPort.available();
@@ -31,13 +32,13 @@ void serialEvent(Serial myPort) {
           inputDataSigned[i+j] = inputData[i+j];
         }
       }
-      //i += 3;
+      i += 3;
     }
 
-    for (int i = 0; i < size-1; i++)
+    for (int i = 0; i < (size-1)/7; i++)
     {
-      //Accelerometer[0].update(4,5,6);
-      Accelerometer[i].update(inputDataSigned[(7*i)+4], inputDataSigned[(7*i)+5], inputDataSigned[(7*i)+6]);
+      Accelerometer[0].update(4,5,6);
+      //Accelerometer[i].update(inputDataSigned[(7*i)+4], inputDataSigned[(7*i)+5], inputDataSigned[(7*i)+6]);
     }
 
     calculations(size);
