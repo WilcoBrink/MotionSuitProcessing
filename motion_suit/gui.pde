@@ -64,6 +64,9 @@ void gui() {
   text("xAcceleration: " + xAcceleration[0]/9.81 + " g", 250, 80);
   text("yAcceleration: " + yAcceleration[0]/9.81 + " g", 250, 100);
   text("zAcceleration: " + zAcceleration[0]/9.81 + " g", 250, 120);
+  text("xLinearAcceleration: " + xLinearAcceleration[0] + " g", 500, 80);
+  text("yLinearAcceleration: " + yLinearAcceleration[0] + " g", 500, 100);
+  text("zLinearAcceleration: " + zLinearAcceleration[0] + " g", 500, 120);
   text("yaw[0]: " + degrees(yaw[0]), 250, 140);
   text("pitch[0]: " + degrees(pitch[0]), 250, 160);
   text("roll[0]: " + degrees(roll[0]), 250, 180);
@@ -71,7 +74,7 @@ void gui() {
   text("yCoordinate[0]: "+ yCoordinate[0], 250, 220);
   text("zCoordinate[0]: "+ zCoordinate[0], 250, 240);
   text("timestamp: " + timestamp*1000.0 + " ms", 250, 260);
-  
+
   text("bufferSize: " + bufferSize, 10, 280);
   text("totaal buffer: " + totaalBuffer, 110, 280);
   text("received: " + inBuffer, 10, 300);

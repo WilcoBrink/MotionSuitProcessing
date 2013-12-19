@@ -9,21 +9,25 @@ public void calculations(int size) {
       zAcceleration[i] = (inputDataSigned[7*i+6]/32768.0)*9.81*accMode;    // in accelero ligt y op het horizontale vlak, in processing is y in de hoogte
     }
   }
-  
+
   float[] gravity = new float[3];
   float[] euler = new float[3];
-  
+
   //calculate gravity vector
   gravity[0] = 2 * (inputDataSigned[1]*inputDataSigned[3] - inputDataSigned[0]*inputDataSigned[2]);
   gravity[1] = 2 * (inputDataSigned[0]*inputDataSigned[1] + inputDataSigned[2]*inputDataSigned[3]);
   gravity[2] = inputDataSigned[0]*inputDataSigned[0] - inputDataSigned[1]*inputDataSigned[1] - inputDataSigned[2]*inputDataSigned[2] + inputDataSigned[3]*inputDataSigned[3];
   
+  xLinearAcceleration[0] = xAcceleration[0] - (gravity[0] * 4096);
+  yLinearAcceleration[0] = yAcceleration[0] - (gravity[1] * 4096);
+  zLinearAcceleration[0] = zAcceleration[0] - (gravity[2] * 4096);
+
   // calculate Euler angles
   euler[0] = atan2(2*inputDataSigned[1]*inputDataSigned[2] - 2*inputDataSigned[0]*inputDataSigned[3], 2*inputDataSigned[0]*inputDataSigned[0] + 2*inputDataSigned[1]*inputDataSigned[1] - 1);
   euler[1] = -asin(2*inputDataSigned[1]*inputDataSigned[3] + 2*inputDataSigned[0]*inputDataSigned[2]);
   euler[2] = atan2(2*inputDataSigned[2]*inputDataSigned[3] - 2*inputDataSigned[0]*inputDataSigned[1], 2*inputDataSigned[0]*inputDataSigned[0] + 2*inputDataSigned[3]*inputDataSigned[3] - 1);
   //println(euler);
-  
+
   //z-axis
   yaw[0] = -1 * atan2(2*inputDataSigned[1]*inputDataSigned[2] - 2*inputDataSigned[0]*inputDataSigned[3], 2*inputDataSigned[0]*inputDataSigned[0] + inputDataSigned[1]*inputDataSigned[1] - 1);
   //y-axis
@@ -33,20 +37,20 @@ public void calculations(int size) {
   armRightWrist.Update(armRightWrist.x, armRightWrist.y, armRightWrist.z, yaw[0], pitch[0], roll[0]);
 
   /*xDisplacement[0] = (xStartSpeed[0] * timestamp) + (0.5 * sensorData[0].xpos * sq(timestamp));
-  xCoordinate[0]= xCoordinate[0] + xDisplacement[0];
-  xStartSpeed[0] = xStartSpeed[0] + timestamp * sensorData[0].xpos;
+   xCoordinate[0]= xCoordinate[0] + xDisplacement[0];
+   xStartSpeed[0] = xStartSpeed[0] + timestamp * sensorData[0].xpos;
+   
+   yDisplacement[0] = (yStartSpeed[0] * timestamp) + (0.5 * sensorData[0].ypos * sq(timestamp));
+   yCoordinate[0]= yCoordinate[0] + yDisplacement[0];
+   yStartSpeed[0] = yStartSpeed[0] + timestamp * sensorData[0].ypos;
+   
+   zDisplacement[0] = (zStartSpeed[0] * timestamp) + (0.5 * sensorData[0].zpos * sq(timestamp));
+   zCoordinate[0]= zCoordinate[0] + zDisplacement[0];
+   zStartSpeed[0] = zStartSpeed[0] + timestamp * sensorData[0].zpos;*/
 
-  yDisplacement[0] = (yStartSpeed[0] * timestamp) + (0.5 * sensorData[0].ypos * sq(timestamp));
-  yCoordinate[0]= yCoordinate[0] + yDisplacement[0];
-  yStartSpeed[0] = yStartSpeed[0] + timestamp * sensorData[0].ypos;
+  dataQuaternion = new Quaternion(inputDataSigned[0], inputDataSigned[1], inputDataSigned[2], inputDataSigned[3]);
+  resultQuaternion=Slerping(Accelerometer[0], dataQuaternion);
 
-  zDisplacement[0] = (zStartSpeed[0] * timestamp) + (0.5 * sensorData[0].zpos * sq(timestamp));
-  zCoordinate[0]= zCoordinate[0] + zDisplacement[0];
-  zStartSpeed[0] = zStartSpeed[0] + timestamp * sensorData[0].zpos;*/
-  
-  dataQuaternion = new Quaternion(inputDataSigned[0],inputDataSigned[1],inputDataSigned[2],inputDataSigned[3]);
-  resultQuaternion=Slerping(Accelerometer[0],dataQuaternion);
-  
   vectortje[0] = resultQuaternion.V().xpos;
   vectortje[1] = resultQuaternion.V().ypos;
   vectortje[2] = resultQuaternion.V().zpos;

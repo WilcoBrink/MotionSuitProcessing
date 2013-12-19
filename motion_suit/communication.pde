@@ -17,7 +17,7 @@ void serialEvent(Serial myPort) {
     int size = inputData.length;
     for (int i = 0; i < size-1;) {
       for (int j= 0; j < 4; j++) {
-          inputDataSigned[i+j] = inputData[i+j] / 10000000.0;
+        inputDataSigned[i+j] = inputData[i+j] / 10000000.0;
       }
       i += 4;
       for (int j = 0; j < 3; j++) {
@@ -33,13 +33,13 @@ void serialEvent(Serial myPort) {
       }
       //i += 3;
     }
-   
+
     for (int i = 0; i < size-1; i++)
     {
-       //Accelerometer[0].update(4,5,6);
-       Accelerometer[i].update(inputDataSigned[(7*i)+4],inputDataSigned[(7*i)+5],inputDataSigned[(7*i)+6]);
+      //Accelerometer[0].update(4,5,6);
+      Accelerometer[i].update(inputDataSigned[(7*i)+4], inputDataSigned[(7*i)+5], inputDataSigned[(7*i)+6]);
     }
-    
+
     calculations(size);
   }
   else {

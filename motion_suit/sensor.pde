@@ -10,7 +10,7 @@ class Sensor {
     this.pitch = pitch;
     this.yaw = yaw;
   }
-  
+
   void Update(float x, float y, float z, float yaw, float pitch, float roll) {
     this.x = x;
     this.y = y;

@@ -34,6 +34,9 @@ float[] pitch = new float[20];
 float[] xAcceleration = new float[20];
 float[] yAcceleration = new float[20];
 float[] zAcceleration = new float[20];
+float[] xLinearAcceleration = new float[20];
+float[] yLinearAcceleration = new float[20];
+float[] zLinearAcceleration = new float[20];
 float[] xDisplacement = new float[20];
 float[] yDisplacement = new float[20];
 float[] zDisplacement = new float[20];
@@ -41,8 +44,8 @@ float[] xStartSpeed = new float[20];
 float[] yStartSpeed = new float[20];
 float[] zStartSpeed = new float[20];
 
-Quaternion dataQuaternion = new Quaternion(0,0,0,0);
-Quaternion resultQuaternion = new Quaternion(1,0,0,0);
+Quaternion dataQuaternion = new Quaternion(0, 0, 0, 0);
+Quaternion resultQuaternion = new Quaternion(1, 0, 0, 0);
 float[] vectortje = new float[3];
 Vector[] Accelerometer=new Vector[20];
 
@@ -91,9 +94,9 @@ void setup() {
   cam.setMinimumDistance(0);
   cam.setMaximumDistance(500);
   cam.setYawRotationMode();
-  
-  Accelerometer[0] = new Vector(0,0,0);
-  
+
+  Accelerometer[0] = new Vector(0, 0, 0);
+
   createInterface();
 
   createLogTable();
@@ -124,13 +127,14 @@ void draw() {
   box(5);
   popMatrix();
 
+  armRightElbow.x = red_box_x;
   armRightElbow.y = red_box_y;
   armRightElbow.z = red_box_z;
 
   updateBody();      // hoort eigenlijk in 'communication' na aanroepen van de calculations functie!!!
 
   drawBody();
-  
+
   drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + vectortje[0], armRightWrist.y + vectortje[1], armRightWrist.z + vectortje[2], 0.5, cYellow);
 
   gui();
