@@ -34,31 +34,17 @@ float[] pitch = new float[20];
 float[] xAcceleration = new float[20];
 float[] yAcceleration = new float[20];
 float[] zAcceleration = new float[20];
-float[] xGyroscope = new float[20];
-float[] yGyroscope = new float[20];
-float[] zGyroscope = new float[20];
 float[] xDisplacement = new float[20];
 float[] yDisplacement = new float[20];
 float[] zDisplacement = new float[20];
-float[] xAngle = new float[20];
-float[] yAngle = new float[20];
-float[] zAngle = new float[20];
 float[] xStartSpeed = new float[20];
 float[] yStartSpeed = new float[20];
 float[] zStartSpeed = new float[20];
-
-/////////////////////
-//int n = 1;
-//float R=0;
-//float wGyro=5;
-//int schakel = 0;
-//float zwaartekracht=9.81;
 
 Quaternion dataQuaternion = new Quaternion(0,0,0,0);
 Quaternion resultQuaternion = new Quaternion(1,0,0,0);
 float[] vectortje = new float[3];
 Vector[] Accelerometer=new Vector[20];
-
 
 float timestamp = 0.05;             // in seconden
 
@@ -131,8 +117,8 @@ void draw() {
 
   pushMatrix();
   translate(xCoordinate[0], yCoordinate[0] - 15, zCoordinate[0]);
-  rotateX(-roll[0]);
-  rotateY(-yaw[0]);
+  rotateX(roll[0]);
+  rotateY(yaw[0]);
   rotateZ(pitch[0]);
   fill(0, 255, 255);
   box(5);
@@ -145,7 +131,7 @@ void draw() {
 
   drawBody();
   
-  drawLine(-25.0, -10.0, 0.0, -25.0 + vectortje[0], -10.0 + vectortje[1], 0.0 + vectortje[2], 0.5, cYellow);
+  drawLine(armRightWrist.x, armRightWrist.y, armRightWrist.z, armRightWrist.x + vectortje[0], armRightWrist.y + vectortje[1], armRightWrist.z + vectortje[2], 0.5, cYellow);
 
   gui();
 }

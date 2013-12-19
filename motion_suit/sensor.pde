@@ -10,15 +10,24 @@ class Sensor {
     this.pitch = pitch;
     this.yaw = yaw;
   }
+  
+  void Update(float x, float y, float z, float yaw, float pitch, float roll) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    this.roll = roll;
+    this.pitch = pitch;
+    this.yaw = yaw;
+  }
 
   void Display() {
     pushMatrix();
     translate(x, y, z);
-    rotateX(yaw);
-    rotateY(pitch);
-    rotateZ(roll);
+    rotateX(roll);
+    rotateY(yaw);
+    rotateZ(pitch);
     fill(0, 255, 0);
-    box(1);
+    box(2);
     popMatrix();
   }
 }

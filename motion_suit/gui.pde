@@ -70,7 +70,7 @@ void gui() {
   text("xCoordinate[0]: "+ xCoordinate[0], 250, 200);
   text("yCoordinate[0]: "+ yCoordinate[0], 250, 220);
   text("zCoordinate[0]: "+ zCoordinate[0], 250, 240);
-  text("timestamp: " + timestamp2*1000.0 + " ms", 250, 260);
+  text("timestamp: " + timestamp*1000.0 + " ms", 250, 260);
   
   text("bufferSize: " + bufferSize, 10, 280);
   text("totaal buffer: " + totaalBuffer, 110, 280);
@@ -154,15 +154,12 @@ public void Reset() {
   xCoordinate[0] = 0.0;
   xStartSpeed[0] = 0.0;
   xAcceleration[0] = 0.0;
-  xAngle[0] = 0.0;
   yCoordinate[0] = 0.0;
   yStartSpeed[0] = 0.0;
   yAcceleration[0] = 0.0;
-  yAngle[0] = 0.0;
   zCoordinate[0] = 0.0;
   zStartSpeed[0] = 0.0;
   zAcceleration[0] = 0.0;
-  zAngle[0] = 0.0;
 }
 
 public void Screenshot() {

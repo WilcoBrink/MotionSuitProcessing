@@ -31,7 +31,7 @@ class Limb {
   }
 
   void Display() {
-    pushMatrix();
+    /*pushMatrix();
 
     beginShape(TRIANGLES);
     fill(0, 0, 255);
@@ -70,7 +70,9 @@ class Limb {
     vertex(xMiddle, yMiddle-1, zMiddle+1);
     endShape();
 
-    popMatrix();
+    popMatrix();*/
+    
+    drawLine(x1, y1, z1, x2, y2, z2, 1.0, cBlue);
   }
 }
 
